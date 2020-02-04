@@ -53,7 +53,39 @@ public class Comparendo {
 		
 	}
 	
-	public Comparendo darAnterior(){
-		return anterior;
+	public int darIdComparendo(){
+		return idComparendo;
 	}
+	
+	
+	public Date darfechaHora(){
+		return fechaHora;
+	}
+	
+	
+	public String darClaseVehiculo(){
+		return claseVehiculo;
+	}
+	
+	
+	
+	public String darTipoServicio(){
+		return tipoServicio;
+	}
+	
+	
+	public String darInfraccion(){
+		return infraccion;
+	}
+	
+	
+	public String darDespcripcionInfraccion(){
+		return DescripcionInfraccion;
+	}
+	
+		public String darLocalidad(){
+		return localidad;
+	}
+	
+	
 }
