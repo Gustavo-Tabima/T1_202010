@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class ListaDobleEncadenada implements IDobleListaEncadenada{
+public class ListaDobleEncadenada <Z extends Iterable<Z>>implements IDobleListaEncadenada{
 
 	private int tamaño;
 
@@ -27,25 +27,25 @@ public class ListaDobleEncadenada implements IDobleListaEncadenada{
 	}
 
 	@Override
-	public String darPrimerElemento() {
+	public Z darPrimerElemento() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String darUltimoElemento() {
+	public Z darUltimoElemento() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String darElemento() {
+	public Z darElemento() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String BuscarElemneto(String ID) {
+	public Z BuscarElemneto(String ID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -56,13 +56,9 @@ public class ListaDobleEncadenada implements IDobleListaEncadenada{
 
 	}
 
-	@Override
-	public void agregarDespues(String ID) {
-		// TODO Auto-generated method stub
+	
 
-	}
 
-	@Override
 	public void agregarPrimero(Comparendo pComparendo) {
 		if (primero== null) {
 			primero= pComparendo;
@@ -76,17 +72,8 @@ public class ListaDobleEncadenada implements IDobleListaEncadenada{
 		tamaño++;
 	}
 
-	@Override
-	public void agregarUltimo(Comparendo nuevoComparendo) {
-		Comparendo actual = primero;
 
-		while(actual.darSiguiente()!=null){
-			actual=actual.darSiguiente();
-		}
-		actual.CambiarSiguiente(nuevoComparendo);
-		nuevoComparendo.CambiarAnterior(actual);
 
-	}
 
 	@Override
 	public void removerPrimero() {
@@ -101,15 +88,29 @@ public class ListaDobleEncadenada implements IDobleListaEncadenada{
 	}
 
 	@Override
-	public void remover(String ID) {
+	public void agregarDespues(Iterable ID) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public Iterator iterator() {
+	public void agregarPrimero(Iterable pComparendo) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
+	@Override
+	public void agregarUltimo(Iterable nuevoComparendo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remover(Iterable ID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
 }

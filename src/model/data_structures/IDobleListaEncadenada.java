@@ -4,7 +4,7 @@ package model.data_structures;
 
 public interface IDobleListaEncadenada <Z extends Iterable<Z>>   { 
 
-	public Z darTamaño();
+	public int darTamaño();
 	
 	public Z darPrimerElemento();// metodo para instertar dato como primero de la lista.
 	
@@ -26,7 +26,7 @@ public interface IDobleListaEncadenada <Z extends Iterable<Z>>   {
 	
 	public void removerUltimo();// remueve el ultimo objeto de la lista
 	
-	public void remover(String ID); // remueve un objeto especifico de la lista
+	public void remover(Z ID); // remueve un objeto especifico de la lista
 
 	
 
