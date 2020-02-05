@@ -20,7 +20,7 @@ public void leerGson() {
 		lector = new JsonReader(new FileReader(ruta));
 	
 		String[] lista = gson.fromJson(lector, String[].class);
-	
+	//esto aún no funciona
 	} catch (FileNotFoundException e) {
 		e.printStackTrace();
 	}
