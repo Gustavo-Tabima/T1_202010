@@ -29,51 +29,118 @@ public class DobleListaEncadenada <X,Z extends Iterable<Z>> implements IDobleLis
 
 	@Override
 	public Z BuscarElemento(X ID) {
-		Iterator<Nodo> iterador = new Iterator<Nodo>() {
-			
-			@Override
-			public Nodo next() {
-				
-				return null;
+
+		Nodo<X, Z> actual = nodoInicial;
+		Z elementoBuscado =null;
+		if (actual!=null) {
+			while (actual.getSiguiente()!=null) 
+			{
+				if (actual.getDatos().equals(ID)) 
+				{
+					elementoBuscado=actual.getDatos();
+				}
+				actual=actual.getSiguiente();
 			}
-			
-			@Override
-			public boolean hasNext() {
-				// TODO Auto-generated method stub
-				return false;
+
+		}
+		else {
+			return null;
+		}
+		return elementoBuscado;
+
+	}
+
+
+
+	public Nodo<X, Z> BuscarNodo(X ID) {
+
+		Nodo<X, Z> actual = nodoInicial;
+		Nodo<X, Z> Buscado =null;
+		if (actual!=null) {
+			while (actual.getSiguiente()!=null) 
+			{
+				if (actual.darID().equals(ID)) 
+				{
+					Buscado=actual;
+				}
+				actual=actual.getSiguiente();
 			}
-		};
-		
-		return null;
+		}
+		else
+		{
+			return null;
+		}
+		return Buscado;
 	}
 
 	@Override
 	public void limpiarLista() {
 		// TODO Auto-generated method stub
 
+		if (nodoInicial!=null) {
+			Nodo<X, Z> actual = nodoFinal;
+			while (actual.getAnterior()!=null) 
+			{
+				actual.getAnterior().setSiguiente(null);
+				actual.setAnterior(null);
+				actual=actual.getAnterior();
+			}
+		}
+
+
 	}
 
 	@Override
 	public void agregarDespues(X ID, Z pComparendo) {
 		// TODO Auto-generated method stub
+		Nodo<X, Z> nuevo = new Nodo< X, Z>(pComparendo);
+		Nodo<X, Z> siguienteDeBucado= 	BuscarNodo(ID).getSiguiente();
+
+		BuscarNodo(ID).setSiguiente(nuevo);
+		siguienteDeBucado.setAnterior(nuevo);
+		nuevo.setAnterior(BuscarNodo(ID));
+		nuevo.setSiguiente(siguienteDeBucado);
 
 	}
 
 	@Override
 	public void agregarPrimero(Z pComparendo) {
 		// TODO Auto-generated method stub
+		Nodo<X, Z> nuevo = new Nodo< X, Z>(pComparendo);
+		Nodo<X, Z> primero = nodoInicial;
+		if (nodoInicial!=null) {
+			primero.setAnterior(nuevo);
+			nuevo.setSiguiente(primero);
+			nodoInicial= nuevo; 
+
+		}else {
+			nodoInicial=nuevo;
+			nodoInicial.setAnterior(null);
+
+		}
 
 	}
 
+	
+	
 	@Override
 	public void agregarUltimo(Z pComparendo) {
 		// TODO Auto-generated method stub
-
+		Nodo<X, Z> nuevo = new Nodo< X, Z>(pComparendo);
+		nodoFinal.setSiguiente(nuevo);
+		nuevo.setAnterior(nodoFinal);
+		nodoFinal= nuevo;
 	}
 
 	@Override
 	public void removerPrimero() {
 		// TODO Auto-generated method stub
+		if (nodoInicial!=null) {
+			Nodo<X, Z>	nuevoPrimero=nodoInicial.getSiguiente();
+			nodoInicial.setSiguiente(null);
+			nuevoPrimero.setAnterior(null);
+			nodoInicial=nuevoPrimero;
+		}
 
 	}
 
@@ -97,4 +164,7 @@ public class DobleListaEncadenada <X,Z extends Iterable<Z>> implements IDobleLis
 		return nodoActual.getDatos();
 	}
 
+	public void invariante(){
+
+	}
 }

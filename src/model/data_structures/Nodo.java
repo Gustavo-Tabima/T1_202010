@@ -10,10 +10,7 @@ public class Nodo<X,K> {
 		datos = pDatos;
 	}
 
-	public Nodo(K pDatos, Nodo<X,K> pSiguiente) {
-		datos = pDatos;
-		siguiente = pSiguiente;
-	}
+	
 
 	public Nodo(K pDatos, Nodo<X,K> pSiguiente, Nodo<X,K> pAnterior) {
 		datos = pDatos;
