@@ -5,7 +5,7 @@ import java.util.Scanner;
 import model.logic.Modelo;
 import view.View;
 
-public class Controller {
+public class Controller <X , Z extends Iterable<Z>>{
 
 	/* Instancia del Modelo*/
 	private Modelo modelo;
@@ -27,7 +27,8 @@ public class Controller {
 	{
 		Scanner lector = new Scanner(System.in);
 		boolean fin = false;
-		String dato = "";
+		Z dato;
+		X X;
 		String respuesta = "";
 
 		while( !fin ){
@@ -39,13 +40,13 @@ public class Controller {
 					view.printMessage("--------- \nCrear Arreglo \nDar capacidad inicial del arreglo: ");
 				    int capacidad = lector.nextInt();
 				    modelo = new Modelo(capacidad); 
-				    view.printMessage("Arreglo Dinamico creado");
+				    view.printMessage("Lista Doble creada");
 				    view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
 					break;
 
 				case 2:
 					view.printMessage("--------- \nDar cadena (simple) a ingresar: ");
-					dato = lector.next();
+					
 					modelo.agregar(dato);
 					view.printMessage("Dato agregado");
 					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
@@ -53,8 +54,8 @@ public class Controller {
 
 				case 3:
 					view.printMessage("--------- \nDar cadena (simple) a buscar: ");
-					dato = lector.next();
-					respuesta = modelo.buscar(dato);
+		
+					respuesta = (String) modelo.buscar(dato);
 					if ( respuesta != null)
 					{
 						view.printMessage("Dato encontrado: "+ respuesta);
@@ -68,8 +69,8 @@ public class Controller {
 
 				case 4:
 					view.printMessage("--------- \nDar cadena (simple) a eliminar: ");
-					dato = lector.next();
-					respuesta = modelo.eliminar(dato);
+			
+				 modelo.eliminar(Z);
 					if ( respuesta != null)
 					{
 						view.printMessage("Dato eliminado "+ respuesta);
