@@ -2,7 +2,7 @@ package model.data_structures;
 
 import java.util.Date;
 
-public class Comparendo {
+public class Comparendo  {
 
 	private Comparendo siguiente;
 
@@ -22,10 +22,11 @@ public class Comparendo {
 
 	private String localidad;
 
-	public Comparendo(int nIdComparendo, Date nFechaHora, String nClaseVehi, String nTipoServicio, String nInfraccion, String nDescripcionInfraccion, String nLocalidad){
+	public Comparendo(int nIdComparendo, Date date, String nClaseVehi, String nTipoServicio, 
+			String nInfraccion, String nDescripcionInfraccion, String nLocalidad){
 
 		idComparendo= nIdComparendo;
-		fechaHora=nFechaHora;
+		fechaHora=date;
 		claseVehiculo=nClaseVehi;
 		tipoServicio=nTipoServicio;
 		infraccion=nInfraccion;
